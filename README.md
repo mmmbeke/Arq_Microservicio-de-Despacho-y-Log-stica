@@ -26,20 +26,20 @@ Este repositorio contiene la implementación del **Microservicio de Despacho y L
 
 Arq_Microservicio-de-Despacho-y-Logistica/
 ├── src/
-│   ├── index.ts                      # entry point: crea Express, monta rutas, app.listen()
 │   ├── config/
-│   │   └── supabase.ts               # cliente de Supabase
-│   ├── routes/
-│   │   └── despacho.routes.ts        # solo define las rutas
+│   │   └── supabase.ts            # Cliente de Supabase
 │   ├── controllers/
-│   │   └── despacho.controller.ts    # la lógica de tus 6 endpoints
-│   └── middlewares/
-│       └── auth.middleware.ts        # validación de JWT (Bearer)
-├── .env.example                      # PORT=3007 + claves Supabase vacías
-├── .gitignore                        # ignora node_modules, dist, .env
-├── package.json                      # scripts dev/start/build + stack acordado
-├── tsconfig.json
-└── Dockerfile                        # imagen node:20, expone 3007
+│   │   └── despacho.controller.ts # La lógica de tus 6 endpoints
+│   ├── middlewares/
+│   │   └── auth.middleware.ts     # Validación de JWT (Bearer)
+│   ├── routes/
+│   │   └── despacho.routes.ts     # Solo define las rutas
+│   └── index.ts                   # Entry point: crea Express, monta rutas, app.listen()
+├── .env.example                   # PORT=3007 + claves Supabase vacías
+├── .gitignore                     # Ignora node_modules, dist, .env
+├── Dockerfile                     # Imagen node:20, expone 3007
+├── package.json                   # Scripts dev/start/build + stack acordado
+└── tsconfig.json                  # Configuración de TypeScript
 
 El microservicio está diseñado bajo los siguientes patrones:
 1.  **Arquitectura Hexagonal:** Separación estricta entre la lógica de negocio (dominio) y la infraestructura (transporte REST/Eventos y base de datos).
