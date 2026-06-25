@@ -9,6 +9,13 @@ const PORT = process.env.PORT || 3007;
 app.use(cors());
 app.use(express.json());
 
+app.use((req, _res, next) => {
+  const consumer = req.header('X-Consumer') ?? 'unknown';
+  const correlationId = req.header('X-Correlation-Id') ?? 'sin-correlation-id';
+  console.log(`[${req.method}] ${req.path} consumer=${consumer} correlationId=${correlationId}`);
+  next();
+});
+
 console.log('Iniciando Microservicio de Despacho y Logística (G8)...');
 
 app.use('/v1/shipments', despachoRouter);
