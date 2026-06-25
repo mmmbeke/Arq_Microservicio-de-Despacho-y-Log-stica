@@ -42,6 +42,7 @@ Arq_Microservicio-de-Despacho-y-Logistica/
 ├── package.json                   # Scripts dev/start/build + stack acordado
 └── tsconfig.json                  # Configuración de TypeScript
 
+``` 
 El microservicio está diseñado bajo los siguientes patrones:
 1.  **Arquitectura Hexagonal:** Separación estricta entre la lógica de negocio (dominio) y la infraestructura (transporte REST/Eventos y base de datos).
 2.  **Database:** Base de datos aislada en Supabase; ningún otro servicio interactúa directamente con nuestras tablas.
