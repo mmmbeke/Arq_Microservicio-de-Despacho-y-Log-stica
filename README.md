@@ -4,7 +4,7 @@
 
 Este repositorio contiene la implementación del **Microservicio de Despacho y Logística** (Grupo 8), encargado de gestionar el ciclo de vida de los envíos, transiciones de estado logístico y emisión de eventos transaccionales para el ecosistema FishMarket.
 
-## 🛠️ Stack Tecnológico
+##  Stack Tecnológico
 
 ## Nuestra arquitectura se basa en las siguientes tecnologías: 
 
@@ -22,6 +22,27 @@ Este repositorio contiene la implementación del **Microservicio de Despacho y L
 
 ## Arquitectura y Patrones
 
+## Arquitectura a seguir
+
+```text
+Arq_Microservicio-de-Despacho-y-Logistica/
+├── src/
+│   ├── config/
+│   │   └── supabase.ts            # Cliente de Supabase
+│   ├── controllers/
+│   │   └── despacho.controller.ts # La lógica de tus 6 endpoints
+│   ├── middlewares/
+│   │   └── auth.middleware.ts     # Validación de JWT (Bearer)
+│   ├── routes/
+│   │   └── despacho.routes.ts     # Solo define las rutas
+│   └── index.ts                   # Entry point: crea Express, monta rutas, app.listen()
+├── .env.example                   # PORT=3007 + claves Supabase vacías
+├── .gitignore                     # Ignora node_modules, dist, .env
+├── Dockerfile                     # Imagen node:20, expone 3007
+├── package.json                   # Scripts dev/start/build + stack acordado
+└── tsconfig.json                  # Configuración de TypeScript
+
+``` 
 El microservicio está diseñado bajo los siguientes patrones:
 1.  **Arquitectura Hexagonal:** Separación estricta entre la lógica de negocio (dominio) y la infraestructura (transporte REST/Eventos y base de datos).
 2.  **Database:** Base de datos aislada en Supabase; ningún otro servicio interactúa directamente con nuestras tablas.
